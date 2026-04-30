@@ -1,9 +1,7 @@
 import Header from './components/Header.jsx'
 import HeroSection from './components/HeroSection.jsx'
-import QuickBenefits from './components/QuickBenefits.jsx'
 import DehydrationCycle from './components/DehydrationCycle.jsx'
 import FormulaSection from './components/FormulaSection.jsx'
-import ActivationSection from './components/ActivationSection.jsx'
 import AudienceSection from './components/AudienceSection.jsx'
 import ScienceCarousel from './components/ScienceCarousel.jsx'
 import ComparisonSection from './components/ComparisonSection.jsx'
@@ -19,10 +17,8 @@ function App() {
     <main id="top" className="min-h-screen bg-[#f7f7f8] text-zinc-950">
       <Header />
       <HeroSection />
-      <QuickBenefits />
       <DehydrationCycle />
       <FormulaSection />
-      <ActivationSection />
       <AudienceSection />
       <ScienceCarousel />
       <ComparisonSection />
