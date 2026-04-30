@@ -1,109 +1,120 @@
-const stats = [
+const videos = [
   {
-    value: '1.598',
-    label: 'corredoras aprovaram',
+    src: 'https://shop.burblefresh.com.br/videos/letzrun-preview-1.mp4',
+    poster: 'https://shop.burblefresh.com.br/assets/letzrun-video-1-DTYwi88S.webp',
+    className: 'col-span-2 aspect-[16/9]',
   },
   {
+    src: 'https://shop.burblefresh.com.br/videos/letzrun-preview-2.mp4',
+    poster: 'https://shop.burblefresh.com.br/assets/letzrun-video-2-JLjdz4XF.webp',
+    className: 'aspect-square',
+  },
+  {
+    src: 'https://shop.burblefresh.com.br/videos/letzrun-preview-3.mp4',
+    poster: 'https://shop.burblefresh.com.br/assets/letzrun-video-3-BbwxoDRf.webp',
+    className: 'aspect-square',
+  },
+]
+
+const stats = [
+  {
     value: '98%',
-    label: 'amaram o sabor',
+    text: 'amaram o sabor.',
   },
   {
     value: '86%',
-    label: 'melhoraram a recuperação',
+    text: 'melhoraram a recuperação.',
   },
   {
     value: '84%',
-    label: 'melhoraram desempenho físico',
+    text: 'melhoraram o desempenho físico.',
   },
 ]
 
 function EventProofSection() {
   return (
-    <section className="bg-white px-6 py-24">
-      <div className="mx-auto max-w-6xl">
-        <div className="mb-10 text-center">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-zinc-100 px-4 py-2 text-[11px] font-black uppercase tracking-wide text-zinc-600">
-            <span className="h-2 w-2 rounded-full bg-lime-300" />
-            Letz Run Girls
+    <section
+      id="estudo-letzrun"
+      translate="no"
+      className="notranslate relative overflow-hidden bg-white px-5 py-12 sm:py-20"
+    >
+      <div className="relative mx-auto max-w-[680px]">
+        <div className="mb-6 text-center sm:mb-8">
+          <div className="mb-2 flex justify-center sm:mb-3">
+            <span className="inline-flex h-[30px] w-4 items-center justify-center text-2xl font-black text-lime-300">
+              ⋮
+            </span>
           </div>
 
-          <h2 className="mx-auto max-w-2xl text-2xl font-black leading-tight tracking-tight md:text-4xl">
-            Burble Fresh em movimento com mulheres reais.
+          <div className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-[#faf9fb] px-3 py-1.5 text-[0.7rem] font-extrabold uppercase tracking-[0.08em] text-zinc-700 sm:px-4 sm:text-[0.75rem]">
+            <span className="h-2 w-2 shrink-0 rounded-full bg-lime-300 shadow-[0_0_8px_rgba(199,255,5,0.7)]" />
+            Letz Run Girls
+          </div>
+        </div>
+
+        <div className="mx-auto mb-8 max-w-[520px] sm:mb-10">
+          <div className="grid grid-cols-2 gap-1.5 overflow-hidden rounded-2xl bg-white shadow-[0_18px_50px_-22px_rgba(108,75,200,0.35)]">
+            {videos.map((video) => (
+              <div
+                key={video.src}
+                className={`relative overflow-hidden ${video.className}`}
+              >
+                <video
+                  src={video.src}
+                  poster={video.poster}
+                  loop
+                  autoPlay
+                  muted
+                  playsInline
+                  preload="metadata"
+                  className="absolute inset-0 h-full w-full select-none object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mb-8 text-center sm:mb-10">
+          <h2 className="mb-3 text-center text-xl font-extrabold leading-[1.15] tracking-[-0.02em] text-zinc-900">
+            <span className="text-zinc-900">
+              <span className="tabular-nums text-[1.7rem] font-extrabold leading-none text-violet-800 sm:text-[2.1rem]">
+                1.598
+              </span>{' '}
+              corredoras
+            </span>{' '}
+            <span className="rounded-sm bg-lime-300/30 px-1.5 text-violet-800">
+              aprovaram
+            </span>{' '}
+            <span className="text-zinc-900">Burble Fresh</span>
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-sm font-medium leading-relaxed text-zinc-600 md:text-base">
-            Uma experiência de hidratação funcional validada em uma comunidade
-            ativa, conectada e focada em performance.
+          <p className="mx-auto max-w-[480px] text-[0.95rem] leading-[1.6] text-zinc-700 sm:text-[1.05rem]">
+            Resultados percebidos pelas corredoras que experimentaram{' '}
+            <b>Burble Fresh</b> antes, durante e depois da prova.
           </p>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-4 md:grid-rows-2">
-          <div className="flex min-h-[260px] items-center justify-center rounded-[1.7rem] bg-gradient-to-br from-violet-500 to-lime-300 p-6 md:col-span-2 md:row-span-2">
-            <div className="text-center">
-              <div className="text-7xl font-black text-white">01</div>
-              <div className="mt-2 text-xs font-black uppercase tracking-widest text-zinc-950">
-                foto principal temporária
-              </div>
-            </div>
-          </div>
-
-          <div className="flex min-h-[180px] items-center justify-center rounded-[1.7rem] bg-gradient-to-br from-lime-200 to-violet-200 p-6">
-            <div className="text-center">
-              <div className="text-5xl font-black text-violet-700">02</div>
-              <div className="mt-2 text-[10px] font-black uppercase tracking-widest text-zinc-700">
-                foto
-              </div>
-            </div>
-          </div>
-
-          <div className="flex min-h-[180px] items-center justify-center rounded-[1.7rem] bg-gradient-to-br from-violet-200 to-zinc-100 p-6">
-            <div className="text-center">
-              <div className="text-5xl font-black text-violet-700">03</div>
-              <div className="mt-2 text-[10px] font-black uppercase tracking-widest text-zinc-700">
-                foto
-              </div>
-            </div>
-          </div>
-
-          <div className="flex min-h-[180px] items-center justify-center rounded-[1.7rem] bg-gradient-to-br from-zinc-100 to-lime-200 p-6">
-            <div className="text-center">
-              <div className="text-5xl font-black text-violet-700">04</div>
-              <div className="mt-2 text-[10px] font-black uppercase tracking-widest text-zinc-700">
-                foto
-              </div>
-            </div>
-          </div>
-
-          <div className="flex min-h-[180px] items-center justify-center rounded-[1.7rem] bg-gradient-to-br from-violet-600 to-zinc-950 p-6">
-            <div className="text-center">
-              <div className="text-5xl font-black text-lime-300">05</div>
-              <div className="mt-2 text-[10px] font-black uppercase tracking-widest text-white/70">
-                foto
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-8 grid gap-4 md:grid-cols-4">
+        <div className="grid gap-3 sm:grid-cols-3 sm:gap-4">
           {stats.map((stat) => (
             <div
-              key={stat.label}
-              className="rounded-3xl bg-[#f7f7f8] p-6 text-center ring-1 ring-zinc-200"
+              key={stat.text}
+              className="rounded-2xl border border-zinc-100 bg-[#faf9fb] p-5 text-center shadow-[0_6px_24px_rgba(0,0,0,0.04)]"
             >
-              <div className="text-3xl font-black text-violet-700">
+              <div className="text-[1.8rem] font-extrabold leading-none text-violet-800 sm:text-[2rem]">
                 {stat.value}
               </div>
-              <div className="mt-2 text-xs font-black uppercase leading-relaxed text-zinc-500">
-                {stat.label}
-              </div>
+
+              <p className="mt-2 text-[0.78rem] font-bold uppercase leading-snug text-zinc-600 sm:text-[0.82rem]">
+                {stat.text}
+              </p>
             </div>
           ))}
         </div>
 
-        <div className="mx-auto mt-10 max-w-3xl rounded-[1.7rem] bg-zinc-950 px-6 py-5 text-center text-white">
-          <p className="text-sm font-bold leading-relaxed">
-            Prova social visual para reforçar comunidade, movimento e validação
-            real da marca.
+        <div className="mx-auto mt-8 max-w-[560px] rounded-r-xl border-l-4 border-lime-300 bg-lime-50 p-3 sm:mt-10 sm:p-4">
+          <p className="text-[0.85rem] font-semibold leading-[1.65] text-zinc-900 sm:text-[0.95rem]">
+            Prova social real para reforçar confiança, comunidade e percepção de
+            resultado no uso da Burble Fresh.
           </p>
         </div>
       </div>
