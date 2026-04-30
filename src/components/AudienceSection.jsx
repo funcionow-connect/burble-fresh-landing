@@ -1,75 +1,90 @@
-const audienceCards = [
+const modalities = [
   {
-    title: 'Treino com mais ritmo',
-    text: 'Para quem quer manter energia do início ao fim.',
+    name: 'Crossfit',
+    image: 'https://shop.burblefresh.com.br/assets/modalidade-crossfit-D8u67BrV.webp',
   },
   {
-    title: 'Rotina ativa',
-    text: 'Para quem treina, trabalha e ainda precisa render no dia.',
+    name: 'Beach Tênis',
+    image: 'https://shop.burblefresh.com.br/assets/modalidade-beach-tenis-Cre2O5KQ.webp',
   },
   {
-    title: 'Recuperação melhor',
-    text: 'Para quem sente fadiga, pernas pesadas ou queda de disposição.',
+    name: 'Corrida',
+    image: 'https://shop.burblefresh.com.br/assets/modalidade-corrida-CkZXd2J3.webp',
+  },
+  {
+    name: 'Academia',
+    image: 'https://shop.burblefresh.com.br/assets/modalidade-academia-C3h8qsch.webp',
+  },
+  {
+    name: 'Ciclismo',
+    image: 'https://shop.burblefresh.com.br/assets/modalidade-ciclismo-lHMKgzmV.webp',
+  },
+  {
+    name: 'Funcional',
+    image: 'https://shop.burblefresh.com.br/assets/modalidade-funcional-D4TUIyeI.webp',
   },
 ]
 
 function AudienceSection() {
   return (
-    <section className="relative overflow-hidden bg-zinc-950 px-6 py-24 text-white">
-      <div className="absolute left-0 top-0 h-96 w-96 -translate-x-1/2 rounded-full bg-violet-600/40 blur-3xl" />
-      <div className="absolute bottom-0 right-0 h-96 w-96 translate-x-1/2 rounded-full bg-lime-300/20 blur-3xl" />
-
-      <div className="relative mx-auto max-w-6xl">
-        <div className="mx-auto max-w-3xl text-center">
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-[11px] font-black uppercase tracking-wide text-lime-300 ring-1 ring-white/10">
-            <span className="h-2 w-2 rounded-full bg-lime-300" />
-            Feito para rotina ativa
+    <section
+      id="pra-quem"
+      className="relative mx-4 my-4 overflow-hidden rounded-2xl bg-gradient-to-br from-violet-800 via-violet-700 to-zinc-950 px-5 py-[30px] text-white sm:mx-[20px] sm:my-6 sm:px-8 sm:py-20"
+    >
+      <div className="relative z-10 mx-auto max-w-6xl">
+        <div className="mb-6 max-w-[700px] sm:mb-10">
+          <div className="mb-3 flex justify-center sm:mb-4">
+            <span className="inline-flex h-[30px] w-4 items-center justify-center text-2xl font-black text-lime-300">
+              ⋮
+            </span>
           </div>
 
-          <h2 className="text-3xl font-black leading-tight tracking-tight md:text-5xl">
-            Para mulheres que treinam, trabalham e não querem perder o ritmo.
+          <h2 className="mb-2 text-center text-xl font-extrabold leading-[1.15] tracking-[-0.02em] text-white sm:mb-3">
+            Para <em className="not-italic text-lime-300">mulheres</em> que
+            estão em constante <b>movimento</b>.
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-sm font-medium leading-relaxed text-white/70 md:text-base">
-            A Burble Fresh ajuda a manter hidratação, disposição e recuperação
-            em uma rotina intensa, sem açúcar e sem complicação.
+          <p className="text-[0.9rem] leading-[1.7] text-white/80 sm:text-[1.05rem]">
+            Que conciliam uma <b>rotina intensa</b> com a prática de{' '}
+            <b>atividade física</b>, como forma de <b>equilíbrio</b> para
+            organizar a <b>mente</b>, aliviar a <b>pressão</b> e manter o ritmo
+            com mais <b>foco</b>, <b>disposição</b> e <b>energia</b>.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
-          {audienceCards.map((card, index) => (
+        <div className="mb-4 grid grid-cols-3 gap-2 sm:mb-6 sm:grid-cols-3 sm:gap-3 lg:grid-cols-6">
+          {modalities.map((item) => (
             <div
-              key={card.title}
-              className="overflow-hidden rounded-[1.7rem] bg-white/10 p-3 ring-1 ring-white/10 backdrop-blur"
+              key={item.name}
+              className="group relative aspect-[3/4] cursor-default overflow-hidden rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:rounded-xl"
             >
-              <div className="flex h-64 items-center justify-center rounded-[1.3rem] bg-gradient-to-br from-violet-500 to-lime-300">
-                <div className="text-center">
-                  <div className="text-6xl font-black text-white/90">
-                    {index + 1}
-                  </div>
-                  <div className="mt-2 text-xs font-black uppercase tracking-widest text-zinc-950">
-                    imagem temporária
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-4">
-                <h3 className="text-lg font-black text-white">{card.title}</h3>
-                <p className="mt-2 text-sm font-medium leading-relaxed text-white/65">
-                  {card.text}
-                </p>
-              </div>
+              <img
+                src={item.image}
+                alt={item.name}
+                width="800"
+                height="1200"
+                decoding="async"
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
             </div>
           ))}
         </div>
 
-        <div className="mx-auto mt-12 max-w-2xl rounded-[1.7rem] bg-white p-6 text-center text-zinc-950 shadow-2xl">
-          <h3 className="text-xl font-black">
-            Hidratação não deveria ser só água.
-          </h3>
-          <p className="mt-3 text-sm font-medium leading-relaxed text-zinc-600">
-            Depois do suor, seu corpo precisa repor eletrólitos e nutrientes
-            essenciais para continuar performando.
+        <div className="max-w-[700px]">
+          <p className="text-[0.88rem] leading-[1.7] text-white/85 sm:text-[0.98rem]">
+            Mais do que oferecer{' '}
+            <b className="text-lime-300">suporte nos treinos</b>, a Burble Fresh
+            existe para ajudar o corpo a continuar respondendo bem ao que vem
+            depois: <b>trabalho</b>, <b>rotina</b>, <b>decisões</b>,{' '}
+            <b>compromissos</b> e <b>vida real</b>.
+          </p>
+        </div>
+
+        <div className="mt-4 max-w-[700px] rounded-r-xl border-l-[5px] border-lime-300 bg-white/10 p-3 shadow-[0_4px_20px_rgba(199,255,5,0.08)] backdrop-blur-sm sm:mt-5 sm:p-4">
+          <p className="text-[0.9rem] font-extrabold leading-[1.55] tracking-[-0.01em] text-white sm:text-[1rem]">
+            Você <b>treina melhor</b> e mantém o <b>ritmo</b> na{' '}
+            <b>rotina real</b>.
           </p>
         </div>
       </div>
