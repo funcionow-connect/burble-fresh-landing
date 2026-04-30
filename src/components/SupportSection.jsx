@@ -1,20 +1,26 @@
 function SupportSection() {
   return (
-    <section className="relative overflow-hidden bg-zinc-950 px-6 py-20 text-white">
-      <div className="absolute left-0 top-0 h-80 w-80 -translate-x-1/2 rounded-full bg-violet-700/50 blur-3xl" />
-      <div className="absolute bottom-0 right-0 h-80 w-80 translate-x-1/2 rounded-full bg-lime-300/20 blur-3xl" />
+    <section className="relative overflow-hidden bg-gradient-to-br from-violet-800 via-violet-700 to-zinc-950 px-5 py-14 text-white sm:px-8 sm:py-20">
+      <div className="absolute left-0 top-0 h-80 w-80 -translate-x-1/2 rounded-full bg-lime-300/20 blur-3xl" />
+      <div className="absolute bottom-0 right-0 h-80 w-80 translate-x-1/2 rounded-full bg-lime-300/10 blur-3xl" />
 
-      <div className="relative mx-auto max-w-3xl text-center">
-        <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-[11px] font-black uppercase tracking-wide text-lime-300 ring-1 ring-white/10">
-          <span className="h-2 w-2 rounded-full bg-lime-300" />
+      <div className="relative mx-auto max-w-[680px] text-center">
+        <div className="mb-3 flex justify-center sm:mb-4">
+          <span className="inline-flex h-[30px] w-4 items-center justify-center text-2xl font-black text-lime-300">
+            ⋮
+          </span>
+        </div>
+
+        <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-3 py-1.5 text-[0.7rem] font-extrabold uppercase tracking-[0.08em] text-lime-300 sm:px-4 sm:text-[0.75rem]">
+          <span className="h-2 w-2 shrink-0 rounded-full bg-lime-300 shadow-[0_0_8px_rgba(199,255,5,0.7)]" />
           Atendimento
         </div>
 
-        <h2 className="text-3xl font-black leading-tight tracking-tight md:text-5xl">
-          Ainda tem alguma dúvida?
+        <h2 className="text-xl font-extrabold leading-[1.15] tracking-[-0.02em] text-white sm:text-3xl">
+          Ainda ficou com alguma dúvida?
         </h2>
 
-        <p className="mx-auto mt-5 max-w-xl text-sm font-medium leading-relaxed text-white/70 md:text-base">
+        <p className="mx-auto mt-4 max-w-[520px] text-[0.9rem] font-medium leading-[1.7] text-white/75 sm:text-[1.05rem]">
           Fale com a equipe da Burble Fresh pelo WhatsApp e tire suas dúvidas
           antes de comprar.
         </p>
@@ -23,13 +29,14 @@ function SupportSection() {
           href="https://wa.me/5500000000000"
           target="_blank"
           rel="noreferrer"
-          className="mt-8 inline-flex rounded-full bg-lime-300 px-8 py-4 text-xs font-black uppercase text-zinc-950 shadow-xl shadow-lime-300/20 transition hover:scale-105 hover:bg-lime-200"
+          className="mt-7 inline-flex items-center justify-center gap-2 rounded-full bg-lime-300 px-8 py-4 text-[0.85rem] font-extrabold uppercase text-zinc-900 shadow-[0_4px_20px_rgba(199,255,5,0.35)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-lime-400 hover:shadow-[0_8px_28px_rgba(199,255,5,0.45)] sm:text-[0.95rem]"
         >
           Falar com a equipe
+          <span>→</span>
         </a>
 
-        <p className="mt-4 text-xs font-bold text-white/40">
-          Depois trocamos este link pelo WhatsApp oficial do cliente.
+        <p className="mt-4 text-[0.72rem] font-bold text-white/40">
+          Link temporário. Depois trocamos pelo WhatsApp oficial.
         </p>
       </div>
     </section>
