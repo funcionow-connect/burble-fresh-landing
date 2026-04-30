@@ -1,89 +1,136 @@
+import { useState } from 'react'
+
 const testimonials = [
   {
-    name: 'Marina Costa',
-    handle: '@marinacorre',
-    text: 'Senti diferença principalmente depois do treino. Antes eu ficava quebrada o resto do dia, agora consigo recuperar melhor.',
+    title: 'Depoimento 1',
+    poster:
+      'https://shop.burblefresh.com.br/assets/prova-social-poster-1-CxKD684p.webp',
   },
   {
-    name: 'Ana Luiza',
-    handle: '@analu.fit',
-    text: 'Gostei porque é prático. Coloco na garrafinha antes de ir treinar e o sabor é bem leve.',
+    title: 'Depoimento 2',
+    poster:
+      'https://shop.burblefresh.com.br/assets/prova-social-poster-2-CgSlMnZ3.webp',
   },
   {
-    name: 'Camila Rocha',
-    handle: '@camilatreina',
-    text: 'Eu usava isotônico comum, mas queria algo sem açúcar. A Burble entrou fácil na minha rotina.',
-  },
-  {
-    name: 'Fernanda Alves',
-    handle: '@fer.alves',
-    text: 'Uso principalmente em dias de corrida. Ajuda muito naquela sensação de pernas pesadas.',
-  },
-  {
-    name: 'Juliana Martins',
-    handle: '@jumartins',
-    text: 'O que mais gostei foi a praticidade. Dá para levar na bolsa e preparar em qualquer lugar.',
-  },
-  {
-    name: 'Bianca Ramos',
-    handle: '@biancaramostreina',
-    text: 'Depois que comecei a usar, percebi menos cansaço no pós-treino e mais disposição durante o dia.',
+    title: 'Depoimento 3',
+    poster:
+      'https://shop.burblefresh.com.br/assets/prova-social-poster-3_new-DoA0hBtD.webp',
   },
 ]
 
 function TestimonialsSection() {
-  return (
-    <section className="relative overflow-hidden bg-zinc-950 px-6 py-24 text-white">
-      <div className="absolute left-0 top-0 h-96 w-96 -translate-x-1/2 rounded-full bg-violet-700/50 blur-3xl" />
-      <div className="absolute bottom-0 right-0 h-96 w-96 translate-x-1/2 rounded-full bg-lime-300/20 blur-3xl" />
+  const [activeIndex, setActiveIndex] = useState(0)
+  const active = testimonials[activeIndex]
 
-      <div className="relative mx-auto max-w-6xl">
-        <div className="mb-12 text-center">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-[11px] font-black uppercase tracking-wide text-lime-300 ring-1 ring-white/10">
-            <span className="h-2 w-2 rounded-full bg-lime-300" />
-            Mulheres reais
+  function previous() {
+    setActiveIndex((current) =>
+      current === 0 ? testimonials.length - 1 : current - 1,
+    )
+  }
+
+  function next() {
+    setActiveIndex((current) =>
+      current === testimonials.length - 1 ? 0 : current + 1,
+    )
+  }
+
+  return (
+    <section
+      id="depoimentos"
+      className="relative overflow-hidden bg-[#faf9fb] px-5 py-12 sm:px-8 sm:py-20"
+    >
+      <div className="mx-auto max-w-6xl">
+        <div className="mx-auto mb-8 max-w-3xl text-center sm:mb-12">
+          <div className="mb-2 flex justify-center sm:mb-3">
+            <span className="inline-flex h-[30px] w-4 items-center justify-center text-2xl font-black text-violet-600">
+              ⋮
+            </span>
           </div>
 
-          <h2 className="mx-auto max-w-2xl text-3xl font-black leading-tight tracking-tight md:text-5xl">
-            O que elas estão dizendo sobre a Burble Fresh.
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-3 py-1.5 text-[0.7rem] font-extrabold uppercase tracking-[0.08em] text-zinc-700 shadow-[0_1px_4px_rgba(0,0,0,0.04)] sm:px-4 sm:text-[0.75rem]">
+            <span className="h-2 w-2 shrink-0 rounded-full bg-lime-300 shadow-[0_0_8px_rgba(199,255,5,0.7)]" />
+            Prova Social
+          </div>
+
+          <h2 className="mb-3 text-center text-xl font-extrabold leading-[1.15] tracking-[-0.02em] text-zinc-900">
+            Mulheres reais usando{' '}
+            <span className="rounded-sm bg-lime-300/30 px-1.5 text-violet-800">
+              Burble Fresh
+            </span>{' '}
+            na rotina.
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-sm font-medium leading-relaxed text-white/70 md:text-base">
-            Depoimentos temporários para estruturar a seção. Depois trocamos
-            pelos relatos reais do cliente, fotos e arrobas corretos.
+          <p className="mx-auto max-w-[560px] text-[0.9rem] leading-[1.7] text-zinc-600 sm:text-[1.05rem]">
+            Relatos em vídeo ajudam a mostrar experiência real, sabor,
+            praticidade e percepção de resultado no treino e no pós-treino.
           </p>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {testimonials.map((testimonial, index) => (
-            <article
-              key={testimonial.name}
-              className="rounded-[1.7rem] bg-white/10 p-5 ring-1 ring-white/10 backdrop-blur"
+        <div className="relative mx-auto max-w-[340px] sm:max-w-[390px]">
+          <button
+            type="button"
+            onClick={previous}
+            aria-label="Depoimento anterior"
+            className="absolute -left-3 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-xl font-black text-white shadow-md backdrop-blur-sm transition hover:bg-black/70 sm:-left-12"
+          >
+            ‹
+          </button>
+
+          <button
+            type="button"
+            onClick={next}
+            aria-label="Próximo depoimento"
+            className="absolute -right-3 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-xl font-black text-white shadow-md backdrop-blur-sm transition hover:bg-black/70 sm:-right-12"
+          >
+            ›
+          </button>
+
+          <div className="relative aspect-[9/16] overflow-hidden rounded-2xl bg-gradient-to-br from-violet-700 to-violet-950 shadow-[0_20px_50px_-15px_rgba(108,75,200,0.45)]">
+            <button
+              type="button"
+              aria-label={`Reproduzir ${active.title}`}
+              className="group relative flex h-full w-full items-center justify-center"
             >
-              <div className="mb-5 flex items-center gap-4">
-                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-lime-300 to-violet-400 text-lg font-black text-zinc-950">
-                  {index + 1}
-                </div>
+              <img
+                src={active.poster}
+                alt={active.title}
+                width="720"
+                height="1280"
+                loading="lazy"
+                decoding="async"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
 
-                <div>
-                  <h3 className="text-sm font-black text-white">
-                    {testimonial.name}
-                  </h3>
-                  <p className="text-xs font-bold text-lime-300">
-                    {testimonial.handle}
-                  </p>
-                </div>
-              </div>
+              <span className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full bg-violet-950/90 shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-transform group-hover:scale-105 sm:h-20 sm:w-20">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </span>
+            </button>
+          </div>
 
-              <div className="mb-4 text-sm font-black text-lime-300">
-                ★★★★★
-              </div>
+          <div className="mt-4 flex justify-center gap-1.5">
+            {testimonials.map((item, index) => (
+              <button
+                key={item.title}
+                type="button"
+                onClick={() => setActiveIndex(index)}
+                aria-label={`Ir para depoimento ${index + 1}`}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  activeIndex === index
+                    ? 'w-6 bg-zinc-900'
+                    : 'w-1.5 bg-zinc-300 hover:bg-zinc-500'
+                }`}
+              />
+            ))}
+          </div>
+        </div>
 
-              <p className="text-sm font-medium leading-relaxed text-white/75">
-                “{testimonial.text}”
-              </p>
-            </article>
-          ))}
+        <div className="mx-auto mt-8 max-w-[560px] rounded-r-xl border-l-4 border-violet-600 bg-violet-100 p-3 sm:mt-10 sm:p-4">
+          <p className="text-[0.85rem] font-semibold leading-[1.65] text-zinc-900 sm:text-[0.95rem]">
+            Depoimentos em formato vertical aumentam a confiança e aproximam a
+            comunicação da linguagem de redes sociais.
+          </p>
         </div>
       </div>
     </section>
