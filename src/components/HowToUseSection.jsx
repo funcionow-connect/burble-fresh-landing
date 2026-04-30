@@ -2,115 +2,122 @@ const steps = [
   {
     number: '1',
     title: 'Adicione',
-    text: 'Coloque uma cápsula ou dose na sua garrafa com água.',
+    image: 'https://shop.burblefresh.com.br/assets/como-usar-1-CnVRaybm.png',
+    alt: 'Mulher adicionando sachê Burble Fresh em garrafa de água',
+    text: 'Dilua o conteúdo de 1 sachê equivalente a 7 g em 350 a 500 ml de água.',
   },
   {
     number: '2',
     title: 'Ative',
-    text: 'Aguarde a efervescência dissolver e misture até ficar uniforme.',
+    image: 'https://shop.burblefresh.com.br/assets/como-usar-2-CD_s72tH.png',
+    alt: 'Garrafa Burble com bolhas de ativação em diluição rápida',
+    text: 'As Bolhas de ativação iniciam o processo de diluição rápida imediatamente em contato com a água.',
   },
   {
     number: '3',
     title: 'Hidrate-se',
-    text: 'Consuma antes, durante ou depois do treino para apoiar sua rotina.',
-  },
-]
-
-const moments = [
-  {
-    title: 'Antes do treino',
-    text: 'Para começar com mais disposição e preparar o corpo.',
-  },
-  {
-    title: 'Durante o treino',
-    text: 'Para ajudar na hidratação e reposição de eletrólitos.',
-  },
-  {
-    title: 'Depois do treino',
-    text: 'Para apoiar recuperação e reduzir a sensação de fadiga.',
+    image: 'https://shop.burblefresh.com.br/assets/como-usar-3-CTRTJ1jY.png',
+    alt: 'Mulher se hidratando com Burble Fresh ao ar livre',
+    text: 'Consuma antes, durante ou depois do treino para apoiar sua hidratação, disposição e recuperação.',
   },
 ]
 
 function HowToUseSection() {
   return (
-    <section className="bg-[#f7f7f8] px-6 py-24">
+    <section id="como-usar" className="bg-[#faf9fb] px-5 py-[30px] sm:px-8 sm:py-20">
       <div className="mx-auto max-w-6xl">
-        <div className="mb-12 text-center">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-[11px] font-black uppercase tracking-wide text-zinc-600 shadow-sm">
-            <span className="h-2 w-2 rounded-full bg-lime-300" />
-            Como usar
+        <div className="mx-auto mb-6 max-w-[640px] text-center sm:mb-10">
+          <div className="mb-3 flex justify-center sm:mb-4">
+            <span className="inline-flex h-[30px] w-4 items-center justify-center text-2xl font-black text-violet-600">
+              ⋮
+            </span>
           </div>
 
-          <h2 className="mx-auto max-w-2xl text-2xl font-black leading-tight tracking-tight md:text-4xl">
-            Simples, rápido e fácil de incluir na sua rotina.
+          <div className="mb-3 flex justify-center sm:mb-4">
+            <div className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-3 py-1.5 text-[0.7rem] font-extrabold uppercase tracking-[0.08em] text-zinc-700 shadow-[0_1px_4px_rgba(0,0,0,0.04)] sm:px-4 sm:text-[0.75rem]">
+              <span className="h-2 w-2 shrink-0 rounded-full bg-lime-300 shadow-[0_0_8px_rgba(199,255,5,0.7)]" />
+              Como usar
+            </div>
+          </div>
+
+          <h2 className="mb-2 text-center text-xl font-extrabold leading-[1.15] tracking-[-0.02em] text-zinc-900 sm:mb-3">
+            Como se{' '}
+            <span className="rounded-sm bg-lime-300/30 px-1.5 text-violet-800">
+              hidratar
+            </span>{' '}
+            com Burble Fresh?
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-sm font-medium leading-relaxed text-zinc-600 md:text-base">
-            Prepare em poucos segundos e use nos momentos em que seu corpo mais
-            precisa de hidratação funcional.
+          <p className="text-[0.9rem] leading-[1.65] text-zinc-700/70 sm:text-[1.05rem]">
+            Prático, rápido e eficiente, em poucos segundos e você já está
+            hidratada.
           </p>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-3">
+        <div
+          className="-mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-5 pb-4 [scrollbar-width:none] sm:mx-0 sm:gap-5 sm:px-0 md:gap-6 [&::-webkit-scrollbar]:hidden"
+          role="region"
+          aria-label="Carrossel de passos para usar Burble Fresh"
+        >
           {steps.map((step) => (
-            <div
+            <article
               key={step.number}
-              className="overflow-hidden rounded-[1.7rem] bg-white p-4 shadow-sm ring-1 ring-zinc-200"
+              className="group w-[85%] shrink-0 snap-center sm:w-[70%] md:w-[calc((100%-3rem)/3)]"
+              aria-roledescription="slide"
+              aria-label={`Passo ${step.number} de 3: ${step.title}`}
             >
-              <div className="relative flex h-64 items-center justify-center rounded-[1.3rem] bg-gradient-to-br from-violet-100 via-white to-lime-100">
-                <div className="absolute left-4 top-4 flex h-12 w-12 items-center justify-center rounded-full bg-violet-700 text-xl font-black text-lime-300 shadow-lg">
-                  {step.number}
+              <div className="relative overflow-hidden rounded-3xl border border-black/5 bg-white transition-all duration-300 hover:-translate-y-1">
+                <div className="relative aspect-[4/5] overflow-hidden rounded-t-3xl">
+                  <img
+                    src={step.image}
+                    alt={step.alt}
+                    width="900"
+                    height="1125"
+                    loading="lazy"
+                    decoding="async"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                  />
                 </div>
 
-                <div className="text-center">
-                  <div className="text-6xl font-black text-violet-700">
-                    {step.number}
+                <div className="relative">
+                  <div className="absolute left-1/2 top-[-24px] z-20 -translate-x-1/2 sm:top-[-28px]">
+                    <div className="relative">
+                      <div className="absolute inset-0 rounded-full bg-violet-600 opacity-50 blur-md" />
+
+                      <div className="relative flex h-11 w-11 items-center justify-center rounded-full border-[3px] border-white bg-violet-600 shadow-[0_8px_22px_-6px_rgba(158,143,250,0.7)] sm:h-12 sm:w-12">
+                        <span className="text-[1.1rem] font-extrabold leading-none text-white sm:text-[1.2rem]">
+                          {step.number}
+                        </span>
+                      </div>
+                    </div>
                   </div>
-                  <div className="mt-2 text-[10px] font-black uppercase tracking-widest text-zinc-500">
-                    imagem temporária
+
+                  <div className="px-4 pb-4 pt-4 text-left sm:px-5 sm:pb-5 sm:pt-5">
+                    <h3 className="mb-1.5 text-[1.1rem] font-extrabold tracking-[-0.01em] text-zinc-900 sm:text-[1.25rem]">
+                      {step.title}
+                    </h3>
+
+                    <div className="relative pl-3">
+                      <span className="absolute bottom-0 left-0 top-0 w-[3px] rounded-full bg-violet-600" />
+
+                      <p className="text-[0.85rem] leading-[1.55] text-zinc-700/75 sm:text-[0.92rem]">
+                        {step.text}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
-
-              <div className="p-4">
-                <h3 className="text-xl font-black text-zinc-950">
-                  {step.title}
-                </h3>
-                <p className="mt-3 text-sm font-medium leading-relaxed text-zinc-600">
-                  {step.text}
-                </p>
-              </div>
-            </div>
+            </article>
           ))}
         </div>
 
-        <div className="mt-10 grid gap-4 md:grid-cols-3">
-          {moments.map((moment) => (
-            <div
-              key={moment.title}
-              className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-zinc-200"
-            >
-              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-lime-300 text-sm font-black text-zinc-950">
-                ✓
-              </div>
-
-              <h3 className="text-lg font-black text-zinc-950">
-                {moment.title}
-              </h3>
-
-              <p className="mt-3 text-sm font-medium leading-relaxed text-zinc-600">
-                {moment.text}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-10 text-center">
+        <div className="mt-6 text-center sm:mt-8">
           <a
             href="#oferta"
-            className="inline-flex rounded-full bg-lime-300 px-8 py-4 text-xs font-black uppercase text-zinc-950 shadow-lg transition hover:scale-105 hover:bg-lime-200"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-lime-300 px-8 py-4 text-[0.85rem] font-extrabold uppercase text-zinc-900 shadow-[0_4px_20px_rgba(199,255,5,0.35)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-lime-400 hover:shadow-[0_8px_28px_rgba(199,255,5,0.45)] sm:text-[0.95rem]"
           >
             Quero experimentar agora
+            <span>→</span>
           </a>
         </div>
       </div>
